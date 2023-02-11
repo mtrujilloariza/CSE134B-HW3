@@ -7,6 +7,79 @@
 	<title>Marlon's Portfolio</title>
 	<link rel="icon" href="assets/favicon.ico">
 	<link rel="stylesheet" href="styling/main.css">
+	<style>
+		aside {
+			position: fixed;
+			bottom: 1rem;
+			left: 1rem;
+		}
+
+		aside nav ol{
+			list-style: none;
+			line-height: 2rem;
+		}
+
+		aside nav ol li a {
+			text-decoration: none;
+			color: var(--site-grey);
+			transition: var(--transition-delay);
+		}
+
+		aside nav ol li a:hover {
+			text-decoration: none;
+			color: white;
+			font-size: 1.5em;
+		}
+
+		section {
+			margin-top: 1vh;
+			margin-bottom: 15vh;
+		}
+
+		#aboutMe img{
+			border-radius: 50%;
+		}
+
+		svg {
+			fill: white;
+			transform: scale(1.5);
+			transition: var(--transition-delay);
+		}
+
+		svg:hover{
+			fill: var(--site-grey);
+			transform: scale(2);
+		}
+		#socials ul {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 20px 0;
+		}
+
+		h1 {
+			animation: rainbow 10s infinite alternate;
+		}
+
+		@media screen and (min-width: 800px) {
+			#aboutMe {
+				display: flex;
+				justify-content: space-around;
+				text-align: left;
+				align-items: center;
+			}
+
+			#aboutMe div{
+				max-width: 400px;
+			}
+		}
+
+		@media screen and (max-width: 1300px) {
+			aside {
+				display: none;
+			}
+		}
+	</style>
 </head>
 
 <body>

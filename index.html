@@ -4,17 +4,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Marlon Trujillo's Portfolio Site made for CSE 140L that highlights his work and projects.">
 	<title>Marlon's Portfolio</title>
 	<link rel="icon" href="assets/favicon.ico">
-	<link rel="stylesheet" href="styling/main.css">
+	<link defer rel="stylesheet" href="styling/main.css">
 	<style>
+		main {
+			gap: 200px;
+		}
+
 		aside {
 			position: fixed;
 			bottom: 1rem;
 			left: 1rem;
 		}
 
-		aside nav ol{
+		aside nav ol {
 			list-style: none;
 			line-height: 2rem;
 		}
@@ -23,6 +28,7 @@
 			text-decoration: none;
 			color: var(--site-grey);
 			transition: var(--transition-delay);
+			background: transparent;
 		}
 
 		aside nav ol li a:hover {
@@ -31,12 +37,7 @@
 			font-size: 1.5em;
 		}
 
-		section {
-			margin-top: 1vh;
-			margin-bottom: 15vh;
-		}
-
-		#aboutMe img{
+		#aboutMe img {
 			border-radius: 50%;
 		}
 
@@ -46,10 +47,11 @@
 			transition: var(--transition-delay);
 		}
 
-		svg:hover{
+		svg:hover {
 			fill: var(--site-grey);
 			transform: scale(2);
 		}
+
 		#socials ul {
 			display: flex;
 			justify-content: space-around;
@@ -58,8 +60,21 @@
 		}
 
 		h1 {
-			animation: rainbow 10s infinite alternate;
+			animation: rainbow 10s infinite alternate linear;
 		}
+
+		a.pagelink {
+			background: var(--site-dark-grey);
+			display: inline-block;
+			margin: 10px;
+			padding: 10px 20px;
+			border-radius: 25px;
+		}
+
+		a.pagelink:hover {
+			color: var(--site-grey);
+		}
+
 
 		@media screen and (min-width: 800px) {
 			#aboutMe {
@@ -69,7 +84,7 @@
 				align-items: center;
 			}
 
-			#aboutMe div{
+			#aboutMe div {
 				max-width: 400px;
 			}
 		}
@@ -86,7 +101,7 @@
 	<header>
 		<nav>
 			<ul>
-				<li aria-label="active page"><a href="index.html">Home</a></li>
+				<li><a aria-label="active page" href="index.html">Home</a></li>
 				<li><a href="projects.html">Projects</a></li>
 				<li><a href="experiments.html">Experiments</a></li>
 				<li><a href="academics.html">Academics</a></li>
@@ -118,12 +133,14 @@
 	<main>
 		<section id="aboutMe">
 			<picture>
-				<img src="assets/index/ProfilePic.jpeg" alt="a picture of Marlon" height="200" width="200">
+				<source srcset="/assets/index/ProfilePic.avif" alt="a picture of Marlon" height="200" width="200"
+					type="image/avif" media="screen and (min-width: 768px)">
+				<img src="/assets/index/ProfilePic.jpeg" alt="a picture of Marlon" height="200" width="200">
 			</picture>
 			<div>
-				<h1>Marlon Trujillo <span>&#128187;</span></h1>
+				<h1>Marlon Trujillo</h1>
 				<h2>About Me</h2>
-				<strong>Software Engineer</strong>
+				<strong>Software Engineer <span id="emoji">&#128187;</span></strong>
 				<br>
 				<p>Welcome to my portfolio site,
 					I'm about to me a new grad that is excited to put my skills to work.
@@ -168,7 +185,7 @@
 				<p>
 					Worked as part of the Google Finance Team, and designed and developed projects for Financial queries
 					on Google Search.
-					<br> Languages Used: <em>C++, Java, HTML, CSS, Typescript</em>
+					<br> <br> Languages Used: <em>C++, Java, HTML, CSS, Typescript</em>
 				</p>
 			</div>
 			<hr>
@@ -178,14 +195,18 @@
 				<p>
 					Worked as part of the Google Finance Team, and designed and developed projects for Financial queries
 					on Google Search.
-					<br> Languages Used: <em>Java, Markdown</em>
+					<br> <br> Languages Used: <em>Java, Markdown</em>
 				</p>
 			</div>
 		</section>
 		<section id="education">
 			<h2>Education</h2>
 			<figure>
-				<img src="assets/index/triton.png" title="triton" width="100" height="100">
+				<picture>
+					<source srcset="assets/index/triton-200.webp" type="image/webp">
+					<source srcset="assets/index/triton-200.png" type="image/png">
+					<img src="assets/index/triton.png" title="triton" width="100" height="100">
+				</picture>
 				<figcaption>UCSD</figcaption>
 			</figure>
 			<h3>University of California San Diego</h3>
@@ -194,13 +215,14 @@
 				Bachelors of Science - Computer Science <br>
 				GPA - 3.8
 			</p>
-			<a href="academics.html">learn More</a>
+			<a class="pagelink" href="/academics.html" >More on Academics</a>
 		</section>
 		<section id="contactMe">
 			<h2>Email Me</h2>
-			<a href="mailto:marlon.trujillo2001@gmail.com">marlon.trujillo2001@gmail.com</a>
+			<a class="pagelink" href="mailto:marlon.trujillo2001@gmail.com">marlon.trujillo2001@gmail.com</a>
+			<br>
+			<a class="pagelink" href="/resume.html">Resume</a>
 		</section>
-		<a href="resume.html">Resume</a>
 	</main>
 	<footer>
 		<p>Site developed for CSE 134B</p>
@@ -209,7 +231,8 @@
 /\ "-./  \ /\  __ \ /\  == \ /\ \     /\  __ \ /\ "-.\ \   
 \ \ \-./\ \\ \  __ \\ \  __&lt; \ \ \____\ \ \/\ \\ \ \-.  \  
  \ \_\ \ \_\\ \_\ \_\\ \_\ \_\\ \_____\\ \_____\\ \_\\"\_\ 
-  \/_/  \/_/ \/_/\/_/ \/_/ /_/ \/_____/ \/_____/ \/_/ \/_/ 				 
+  \/_/  \/_/ \/_/\/_/ \/_/ /_/ \/_____/ \/_____/ \/_/ \/_/ 
+
 			</pre>
 	</footer>
 </body>

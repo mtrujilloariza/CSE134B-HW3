@@ -1,5 +1,9 @@
 :root {
-   --gradient: radial-gradient(50rem at center, rgb(8, 8, 61), transparent);
+   --gradient: radial-gradient(
+      50vh at bottom,
+      rgba(136, 166, 255, 0.2),
+      transparent
+   );
    --main-color: #101010;
    --site-blue: #0f4c75;
    --site-grey: #888888;
@@ -57,8 +61,7 @@
    }
 }
 body {
-   background: var(--main-color)
-      radial-gradient(50vh at bottom, rgba(136, 166, 255, 0.2), transparent);
+   background: var(--main-color) var(--gradient);
    background-attachment: fixed;
    color: white;
    font-family: "Inter", sans-serif;
@@ -81,7 +84,7 @@ main {
 
 section {
    min-width: 100%;
-   width:  -moz-fit-content;
+   width: -moz-fit-content;
    width: fit-content;
    text-align: center;
 }

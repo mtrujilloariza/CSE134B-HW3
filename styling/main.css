@@ -323,8 +323,3 @@ input[title="hamburger menu"] {
    }
 }
 
-@media screen and (max-width: 375px) {
-   header nav ul li {
-      font-size: x-small;
-   }
-}

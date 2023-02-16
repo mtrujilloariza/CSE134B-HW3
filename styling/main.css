@@ -5,7 +5,6 @@
       transparent
    );
    --main-color: #101010;
-   --site-blue: #0f4c75;
    --site-grey: #888888;
    --site-dark-grey: #2f2e2e;
    --transition-delay: 0.25s ease-in-out;
@@ -206,21 +205,13 @@ header nav ul li a:hover:before {
    transform: scale(0.9);
 }
 
+input[title="hamburger menu"] {
+   display: none;
+}
+
 @media screen and (max-width: 768px) {
    footer pre {
       display: none;
-   }
-
-   header nav ul {
-      padding: 0 2vw;
-      margin: 2vh 0 0 0;
-      width: 100%;
-   }
-
-   header nav ul li {
-      padding: 0.75vh 2vw;
-      margin: 0 0.2vw;
-      font-size: small;
    }
 
    h1 {
@@ -244,6 +235,91 @@ header nav ul li a:hover:before {
    a.pagelink {
       margin: 5px;
       padding: 8px 15px;
+   }
+
+   header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+   }
+
+   header nav {
+      display: block;
+      position: relative;
+   }
+
+   header nav ul {
+      padding: 0;
+      margin: 0;
+      position: fixed;
+      left: -100%;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      flex-direction: column;
+      justify-content: space-evenly;
+      z-index: 50;
+      transition: var(--transition-delay);
+      background: black;
+   }
+
+   header nav ul li a {
+      font-size: large;
+   }
+
+   header input[title="hamburger menu"] {
+      display: block;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      width: 40px;
+      height: 32px;
+      cursor: pointer;
+      opacity: 0;
+   }
+
+   header span {
+      display: block;
+      width: 33px;
+      height: 4px;
+      margin-bottom: 5px;
+      position: relative;
+      background: #cdcdcd;
+      border-radius: 3px;
+      z-index: 75;
+      transform-origin: 4px 0px;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+   }
+
+   header input[title="hamburger menu"]:checked ~ nav ul {
+      position: fixed;
+      left: 0;
+   }
+
+   header span:first-child {
+      transform-origin: 0% 0%;
+   }
+
+   header span:nth-last-child(2) {
+      transform-origin: 0% 100%;
+   }
+
+   header input[title="hamburger menu"]:checked ~ span {
+      opacity: 1;
+      transform: rotate(45deg) translate(-2px, -1px);
+      background: #232323;
+   }
+
+   header input[title="hamburger menu"]:checked ~ span:nth-last-child(3) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+   }
+
+   header input[title="hamburger menu"]:checked ~ span:nth-last-child(2) {
+      transform: rotate(-45deg) translate(0, -1px);
    }
 }
 

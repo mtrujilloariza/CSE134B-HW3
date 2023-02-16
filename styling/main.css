@@ -209,7 +209,7 @@ input[title="hamburger menu"] {
    display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
    footer pre {
       display: none;
    }
@@ -260,7 +260,6 @@ input[title="hamburger menu"] {
       flex-direction: column;
       justify-content: space-evenly;
       z-index: 50;
-      transition: var(--transition-delay);
       background: black;
    }
 
@@ -268,7 +267,7 @@ input[title="hamburger menu"] {
       font-size: large;
    }
 
-   header input[title="hamburger menu"] {
+   input[title="hamburger menu"] {
       display: block;
       position: fixed;
       top: 20px;
@@ -278,11 +277,22 @@ input[title="hamburger menu"] {
       height: 32px;
       cursor: pointer;
       opacity: 0;
+      margin: 0;
    }
 
-   header span {
+   #hamburger {
       display: block;
-      width: 33px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 32px;
+      z-index: 75;
+   }
+
+   #hamburger span {
+      display: block;
+      width: 34px;
       height: 4px;
       margin-bottom: 5px;
       position: relative;
@@ -294,32 +304,26 @@ input[title="hamburger menu"] {
          background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
    }
 
-   header input[title="hamburger menu"]:checked ~ nav ul {
+   input[title="hamburger menu"]:checked ~ header nav ul {
       position: fixed;
       left: 0;
    }
 
-   header span:first-child {
-      transform-origin: 0% 0%;
-   }
-
-   header span:nth-last-child(2) {
-      transform-origin: 0% 100%;
-   }
-
-   header input[title="hamburger menu"]:checked ~ span {
+   input[title="hamburger menu"]:checked ~ #hamburger span:first-child {
       opacity: 1;
-      transform: rotate(45deg) translate(-2px, -1px);
-      background: #232323;
+      transform: rotate(45deg);
    }
 
-   header input[title="hamburger menu"]:checked ~ span:nth-last-child(3) {
+   input[title="hamburger menu"]:checked ~ #hamburger span:nth-child(2) {
       opacity: 0;
       transform: rotate(0deg) scale(0.2, 0.2);
    }
 
-   header input[title="hamburger menu"]:checked ~ span:nth-last-child(2) {
-      transform: rotate(-45deg) translate(0, -1px);
+   input[title="hamburger menu"]:checked ~ #hamburger span:nth-child(3) {
+      transform: rotate(-45deg);
+   }
+
+   input[title="hamburger menu"]:checked ~ main {
+      display: none;
    }
 }
-
